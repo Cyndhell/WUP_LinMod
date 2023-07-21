@@ -130,7 +130,7 @@ The prediction interval is from -3.1 to 2.0 for SIM score.
 cor(SIMS~ARM+GRIP,data=data)
 ```
   
-The correlation is 0.73 which shows that Grip strength is related to sim score.
+The correlation is 0.73 which shows that Arm and Grip strength is related to sim score.
   
 ### Inferential  (Build 2-dimentional model.3)
 
