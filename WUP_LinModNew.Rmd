@@ -84,14 +84,12 @@ The prediction interval is from -1.7 to 3.1 for SIM score.
 ### Graphical result
 
 ```{r} 
-model.1 <- lm(SIMS~GRIP,data=data)
+model.2 <- lm(SIMS~GRIP,data=data)
 plot(SIMS~GRIP,data=data)
-abline(model.1, col='red')
+abline(model.2, col='red')
 ```
 
-This graph shows that the Grip strenght goes up and the simulation goes up as well.
-
-### Now add in scatterplot
+This graph shows that the Grip strength goes up and the simulation goes up as well.
 
 
 ### Numerical results 
@@ -100,7 +98,7 @@ This graph shows that the Grip strenght goes up and the simulation goes up as we
 cor(SIMS~GRIP,data=data)
 ```
 
-The correlation is 0.63 which shows that Grip strenght is related to sim score.
+The correlation is 0.63 which shows that Grip strength is related to sim score.
 
 ### Inferential  (Build model.2)
   
@@ -109,14 +107,17 @@ model.2<- lm(SIMS~GRIP,data=data)
 summary.lm(model.2)
 ```
 
+Both the intercept and the coefficient GRIP strength are significantly different from 0
+
 
 ## Prediction Interval 
+```{r}
+newdata = data.frame(ARM=88, GRIP=94)
+predict(model.2, newdata, interval= "predict")
+```
 
+The prediction interval is from -3.1 to 2.0 for SIM score.
 
-#### predict model.2 at target point
-
-#### now add the model fit to our plot for model.2
-  
 
 
 ## Model 3 SIM~ARM+GRIP
