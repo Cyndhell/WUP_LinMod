@@ -107,7 +107,7 @@ model.2<- lm(SIMS~GRIP,data=data)
 summary.lm(model.2)
 ```
 
-Both the intercept and the coefficient GRIP strength are significantly different from 0
+Both the intercept and the coefficient GRIP strength are significantly different from 0.
 
 
 ## Prediction Interval 
@@ -123,22 +123,14 @@ The prediction interval is from -3.1 to 2.0 for SIM score.
 ## Model 3 SIM~ARM+GRIP
 
 ## Result
-### Graphical Result 
-
-```{r} 
-model.3 <- lm(SIMS~ARM+GRIP,data=data)
-plot(SIMS~ARM,data=data)
-abline(model.3, col='red')
-plot(SIMS~GRIP,data=data)
-abline(model.3, col='red')
-```
-
 
 ### Numerical results (cor)
 
 ```{r}
 cor(SIMS~ARM+GRIP,data=data)
 ```
+  
+The correlation is 0.73 which shows that Grip strength is related to sim score.
   
 ### Inferential  (Build 2-dimentional model.3)
 
@@ -147,9 +139,18 @@ model.3<- lm(SIMS~ARM+GRIP,data=data)
 summary.lm(model.3)
 ```
 
+As arm plus grip strength goes up, the simulation indicates that the sims goes up as well.
 
+## Prediction Interval 
+```{r}
+newdata = data.frame(ARM=88, GRIP=94)
+predict(model.3, newdata, interval= "predict")
+```
+
+The prediction interval is from -2.1 to 2.4 for SIM score.
 
 ## Comparing nested models ANOVA Test
+
 
 ### Model.1 vs Model.3
 ### Model.2 vs Model.3
