@@ -89,7 +89,7 @@ plot(SIMS~GRIP,data=data)
 abline(model.2, col='red')
 ```
 
-This graph shows that the Grip strength goes up and the simulation goes up as well.
+This graph shows that the Grip strength goes up and the simulation goes up as well.The spread of the points around the regression line in the grip plot are more spread out than are strength plot.
 
 
 ### Numerical results 
@@ -122,14 +122,32 @@ The prediction interval is from -3.1 to 2.0 for SIM score.
 
 ## Model 3 SIM~ARM+GRIP
 
+## Result
+### Graphical Result 
+
+```{r} 
+model.3 <- lm(SIMS~ARM+GRIP,data=data)
+plot(SIMS~ARM,data=data)
+abline(model.3, col='red')
+plot(SIMS~GRIP,data=data)
+abline(model.3, col='red')
+```
+
+
 ### Numerical results (cor)
 
-`
+```{r}
+cor(SIMS~ARM+GRIP,data=data)
+```
   
 ### Inferential  (Build 2-dimentional model.3)
 
-#### predict model.3 at target point
-  
+```{r}
+model.3<- lm(SIMS~ARM+GRIP,data=data)
+summary.lm(model.3)
+```
+
+
 
 ## Comparing nested models ANOVA Test
 
